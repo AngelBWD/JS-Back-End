@@ -1,13 +1,11 @@
+const fileManager = require('./file-manager'); //local module
+const _ = require('lodash') // Third-party module
 
-console.log('ehooo');
-
-setInterval(() => {
-    console.log("Angel");
-}, 5000);
-
- 
-function yes() {
-    console.log('5');
-    
-}
-yes()
+//CPS  (Continuation Passing Style)
+fileManager.readUsers(function (err, content) {
+    if (err) { console.error(err); return;
+    }
+    const userArray = content.split(',');
+   console.log(_.chunk(userArray,2));
+});
+console.log('Hello World!');
