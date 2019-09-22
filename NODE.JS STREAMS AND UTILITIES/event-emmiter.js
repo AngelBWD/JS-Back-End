@@ -6,7 +6,7 @@ class EventEmiter {
     on(eventName, cb) {
         this.on[eventName] = (this.on[eventName] || []).concat(cb);
 
-        const cbIndex = this.on[eventName].length;
+        const cbIndex = this.on[eventName].length-1;
         return () => {
             this.on[eventName] = [
                 ...this.on[eventName].slice(0, cbIndex),
@@ -33,7 +33,7 @@ const emitter = new EventEmiter();
 // emitter.on('getData', console.log);
 // emitter.on('getData', console.log);
 
-
+ 
 emitter.emit('getData', 'Testing...');
 // unsub();
 // console.log('-------------------');
