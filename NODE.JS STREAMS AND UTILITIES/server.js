@@ -6,9 +6,18 @@ const port = 8080;
 const app = http.createServer(function (req, res) {
     const stream = fs.createReadStream('./test.txt', {
         encoding: 'utf-8'
-    }); //Read stream !
+    }); //Read stream !!! 
 
-    stream.pipe(res);  
+    stream.on('data', function(chunk){
+        console.log(chunk);
+        console.log('-----------');
+         
+    })
+    stream.on('error',function(err){
+        console.error(err);
+    })
+     
+    stream.pipe(res); 
     // fs.readFile('./text.txt', function (err, content) {  //Тека не е много добър вариант,защото ако е голям файла 
                                                             //ще ни свърши паметта. Затова използшаме stream-ове                    
     //     res.write(content); 
