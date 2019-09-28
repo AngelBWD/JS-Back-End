@@ -1,10 +1,16 @@
 const express = require('express');
 const port = 8080;
 
-const users = ({
+const users = [{
     id: 1,
     firstName: 'FirstName'
-});
+}, {
+    id: 2,
+    firstName: 'FirstName 2'
+}, {
+    id: 3,
+    firstName: 'FirstName 3'
+}];
 
 const app = express();
 
