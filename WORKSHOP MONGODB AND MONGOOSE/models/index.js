@@ -1,7 +1,4 @@
 const cubeModel = require('./cube');
 const accessoryModel = require('./accessories');
 
-module.exports = {
-    cubeModel,
-    accessoryModel
-}
+module.exports = { cubeModel, accessoryModel };
